@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/kub20/CLionProjects/GrafAlgorytmyProjekt3/Graph.h
+vector
+-
+string
+-
+
+C:/Users/kub20/CLionProjects/GrafAlgorytmyProjekt3/main.cpp
+iostream
+-
+Graph.h
+C:/Users/kub20/CLionProjects/GrafAlgorytmyProjekt3/Graph.h
+
