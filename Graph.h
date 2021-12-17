@@ -14,6 +14,7 @@ class Graph {
 
 private:
     vector<vector<int>> matrix;
+    vector<vector<int>> matrix_transponse;
     vector<vector<int>> edge;
 
 public:
@@ -22,7 +23,7 @@ public:
     }
     vector<string,vector<string>> getVertexNeighbors(){
     }
-
+    //vertice [0,0,0,...,0]
     vector<string> getIsolatedVertices(){
         vector<string> result;
         int index = 1;
@@ -49,7 +50,7 @@ public:
         }
         return result;
     }
-
+    // amount of (1 or -1) == edge amount
     vector<string> getNeighborsOfAll(){
         vector<string> result;
         int index = 1;
@@ -77,11 +78,11 @@ public:
         }
         return result;
     }
-
-    vector<vector<string,int>> getVerticesInegrees(){
+    //amount of -1 in vertice
+    vector<vector<string,int>> getVerticesIndegrees(){
 
     }
-
+    // amount of 1 in vertice
     vector<vector<string,int>> getVerticesOutdegrees(){
 
     }
@@ -89,7 +90,7 @@ public:
     vector<string> getBidirectionalEdges(){
 
     }
-
+    // edge where 1 distinct
     vector<int> getLoops(){
 
     }
