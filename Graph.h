@@ -14,16 +14,51 @@ class Graph {
 
 private:
     vector<vector<int>> matrix;
-    vector<vector<int>> matrix_transponse;
-    vector<vector<int>> edge;
+    int edgeAmount, verticeAmount;
+
+    static bool matrixValidation(vector<vector<int>> matrix){
+        bool result = false;
+        int minus, plus;
+
+        for(int i = 0; i < matrix[0].size();i++){
+            plus = 0;
+            minus = 0;
+            for(auto & el : matrix){
+                if(el[i] == 1){
+                    plus++;
+                }
+                else if(el[i] == -1){
+                    minus++;
+                }
+            }
+            if((plus == 1 || minus == 1) && plus >= minus){
+                result = true;
+            }
+            else {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
 
 public:
     Graph(vector<vector<int>> matrix){
-        this->matrix = matrix;
+
+        if(matrixValidation(matrix)){
+            this->matrix = matrix;
+            this->edgeAmount = matrix.size();
+            this->verticeAmount = matrix[0].size();
+        }
+        else{
+            cout << "Macierz nie spelnia wymagan do bycia macierza incyndecji"<<endl;
+        }
+
     }
-    vector<string,vector<string>> getVertexNeighbors(){
+
+    vector<int,vector<int>> getVertexNeighbors(){
     }
-    //vertice [0,0,0,...,0]
+    //vertice [0,0,0,...,0] done
     vector<string> getIsolatedVertices(){
         vector<string> result;
         int index = 1;
@@ -78,13 +113,41 @@ public:
         }
         return result;
     }
-    //amount of -1 in vertice
-    vector<vector<string,int>> getVerticesIndegrees(){
+    //amount of -1 in vertice done
+    vector<vector<int>> getVerticesIndegrees(){
+        vector<vector<int>> result;
+        int count = 0;
+        int index = 1;
 
+        for(vector<int> el: this->matrix){
+            for(int cell: el){
+                if(cell == -1){
+                    count++;
+                }
+            }
+            result.push_back({index, count});
+            index++;
+            count = 0;
+        }
+        return result;
     }
-    // amount of 1 in vertice
-    vector<vector<string,int>> getVerticesOutdegrees(){
+    // amount of 1 in vertice done
+    vector<vector<int>> getVerticesOutdegrees(){
+        vector<vector<int>> result;
+        int count = 0;
+        int index = 1;
 
+        for(const vector<int>& el: this->matrix){
+            for(int cell: el){
+                if(cell == 1){
+                    count++;
+                }
+            }
+            result.push_back({index, count});
+            index++;
+            count = 0;
+        }
+        return result;
     }
 
     vector<string> getBidirectionalEdges(){

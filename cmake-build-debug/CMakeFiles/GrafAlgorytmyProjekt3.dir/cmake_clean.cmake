@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/GrafAlgorytmyProjekt3.dir/main.cpp.obj"
+  "CMakeFiles/GrafAlgorytmyProjekt3.dir/main.cpp.obj.d"
   "GrafAlgorytmyProjekt3.exe"
   "GrafAlgorytmyProjekt3.exe.manifest"
   "GrafAlgorytmyProjekt3.pdb"
