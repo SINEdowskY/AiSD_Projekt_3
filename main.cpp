@@ -3,19 +3,17 @@
 #include "Graph.h"
 #include <chrono>
 #include <bits/stdc++.h>
+#include <fstream>
+#include <string>
 
 vector<vector<int>> user_matrix(int width, int height){
     vector<vector<int>> result;
-    int a;
+    vector<int> temp;
 
-    for(int i = 0; i < height; i++){
-        cout << "Wiersz "<<i<<endl;
-        for(int j = 0; j < width; j++){
-            cout << "Podaj "<<j<<" liczbe:";
-            cin >> a;
-            result[i][j] = a;
-        }
+    for(int i = 0; i < width; i++){
+        for()
     }
+
 
     return result;
 }
@@ -29,140 +27,150 @@ int main() {
             {0,0,0,0,0,0}
     };
 
+    vector<vector<int>> user = user_matrix(5,4);
+
     Graph graph(A);
+    stringstream ss;
+    ofstream file;
+
 
     for(vector<int> el: A){
-        cout << "[";
+        ss << "[";
         for(int cell: el){
-            cout << setw(2) << cell << " ";
+            ss << setw(2) << cell << " ";
         }
-        cout << "]"<<endl;
+        ss << "]"<<endl;
     }
-    cout << endl;
+    ss << endl;
 
-    cout << "Podpunkt 1: Wszyscy sasiedzi dla kazdego wierzcholka"<<endl;
+    ss << "Podpunkt 1: Wszyscy sasiedzi dla kazdego wierzcholka"<<endl;
 
     auto start = chrono::steady_clock::now();
     vector<Graph::int_vector> ad1 = graph.getVerticeNeighbors();
     auto stop = chrono::steady_clock::now();
     auto time = chrono::duration<long double, milli> (stop - start).count();
 
-    cout << endl;
+    ss << endl;
     for(auto el: ad1){
-        cout << el.num<<": ";
+        ss << el.num<<": ";
         for(auto cell: el.arr){
-            cout << cell << ", ";
+            ss << cell << ", ";
         }
-        cout << endl;
+        ss << endl;
     }
 
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
 
-    cout << "Podpunkt 2: Wszystkie wierzcholki, ktore sa sasiadami kazdego wierzcholka"<<endl;
+    ss << "Podpunkt 2: Wszystkie wierzcholki, ktore sa sasiadami kazdego wierzcholka"<<endl;
     start = chrono::steady_clock::now();
     vector<int> ad2 = graph.getNeighborsOfAll();
     stop = chrono::steady_clock::now();
     time = chrono::duration<long double, milli> (stop - start).count();
 
-    cout << endl;
+    ss << endl;
     if(!ad2.empty()){
         for(int el: ad2){
-            cout << el << ",";
+            ss << el << ",";
         }
     }
     else{
-        cout << "Brak sasiadow kazdego wierzcholka"<<endl;
+        ss << "Brak sasiadow kazdego wierzcholka"<<endl;
     }
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
 
-    cout << "Podpunkt 3: Stopnie wychodzace wszystkich wierzczolkow"<<endl;
+    ss << "Podpunkt 3: Stopnie wychodzace wszystkich wierzczolkow"<<endl;
     start = chrono::steady_clock::now();
     vector<vector<int>> ad3 = graph.getVerticesOutdegrees();
     stop = chrono::steady_clock::now();
     time = chrono::duration<long double, milli> (stop - start).count();
 
-    cout << endl;
+    ss << endl;
     for(vector<int> el: ad3){
-        cout << el[0] << ": " << el[1] <<" Stopien"<<endl;
+        ss << el[0] << ": " << el[1] <<" Stopien"<<endl;
     }
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
 
-    cout << "Podpunkt 4: Stopnie wchodzace wszystkich wierzczolkow"<<endl;
+    ss << "Podpunkt 4: Stopnie wchodzace wszystkich wierzczolkow"<<endl;
     start = chrono::steady_clock::now();
     vector<vector<int>> ad4 = graph.getVerticesIndegrees();
     stop = chrono::steady_clock::now();
     time = chrono::duration<long double, milli> (stop - start).count();
 
-    cout << endl;
+    ss << endl;
     for(vector<int> el: ad4){
-        cout << el[0] << ": " << el[1] <<" Stopien"<<endl;
+        ss << el[0] << ": " << el[1] <<" Stopien"<<endl;
     }
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
 
-    cout << "Podpunkt 5: Wierzcholki izolowane"<<endl;
+    ss << "Podpunkt 5: Wierzcholki izolowane"<<endl;
     start = chrono::steady_clock::now();
     vector<int> ad5 = graph.getIsolatedVertices();
     stop = chrono::steady_clock::now();
     time = chrono::duration<long double, milli> (stop - start).count();
 
 
-    cout << endl;
-    cout << "Wierzcholki: ";
+    ss << endl;
+    ss << "Wierzcholki: ";
     if(!ad5.empty()){
         for(int el: ad5){
-            cout << el <<',';
+            ss << el <<',';
         }
     }
     else{
-        cout << "Brak wierzcholkow izolowanych" << endl;
+        ss << "Brak wierzcholkow izolowanych" << endl;
     }
-    cout << endl;
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
 
-    cout << "Podpunkt 6: Petle"<<endl;
+    ss << "Podpunkt 6: Petle"<<endl;
     start = chrono::steady_clock::now();
     vector<int> ad6 = graph.getLoops();
     stop = chrono::steady_clock::now();
     time = chrono::duration<long double, milli> (stop - start).count();
 
 
-    cout << endl;
-    cout << "Krawedzie: ";
+    ss << endl;
+    ss << "Krawedzie: ";
     if(!ad6.empty()){
         for(int el: ad6){
-            cout << el <<',';
+            ss << el <<',';
         }
     }
     else{
-        cout << "Brak petli" << endl;
+        ss << "Brak petli" << endl;
     }
-    cout << endl;
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
 
-    cout << "Podpunkt 7: Krawedzie dwukierunkowe"<<endl;
+    ss << "Podpunkt 7: Krawedzie dwukierunkowe"<<endl;
     start = chrono::steady_clock::now();
     vector<vector<int>> ad7 = graph.getBidirectionalEdges();
     stop = chrono::steady_clock::now();
     time = chrono::duration<long double, milli> (stop - start).count();
 
-    cout << endl;
+    ss << endl;
 
     if(!ad7.empty()){
         for(vector<int> el: ad7){
-            cout << el[0] << " : " << el[1]<< endl;
+            ss << el[0] << " : " << el[1]<< endl;
         }
     }
     else{
-        cout << "Brak krawedzi dwukierunkowych" << endl;
+        ss << "Brak krawedzi dwukierunkowych" << endl;
     }
-    cout << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
-    cout << endl;
+    ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
+    ss << endl;
+
+    cout << ss.str();
+    file.open("output.txt");
+    file << ss.str();
+    file.close();
 
     return 0;
 }

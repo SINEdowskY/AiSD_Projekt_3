@@ -1,0 +1,53 @@
+[ 1  1  0  0  0  1 ]
+[-1  0 -1  0  0  0 ]
+[ 0 -1  1  1 -1  0 ]
+[ 0  0  0 -1  1  0 ]
+[ 0  0  0  0  0  0 ]
+
+Podpunkt 1: Wszyscy sasiedzi dla kazdego wierzcholka
+
+0: 1, 2, 
+1: 
+2: 1, 3, 
+3: 2, 
+4: 
+Czas trwania algorytmu: 0.0168 ms
+
+Podpunkt 2: Wszystkie wierzcholki, ktore sa sasiadami kazdego wierzcholka
+
+Brak sasiadow kazdego wierzcholka
+Czas trwania algorytmu: 0.0004 ms
+
+Podpunkt 3: Stopnie wychodzace wszystkich wierzczolkow
+
+1: 3 Stopien
+2: 0 Stopien
+3: 2 Stopien
+4: 1 Stopien
+5: 0 Stopien
+Czas trwania algorytmu: 0.017 ms
+
+Podpunkt 4: Stopnie wchodzace wszystkich wierzczolkow
+
+1: 0 Stopien
+2: 2 Stopien
+3: 2 Stopien
+4: 1 Stopien
+5: 0 Stopien
+Czas trwania algorytmu: 0.0116 ms
+
+Podpunkt 5: Wierzcholki izolowane
+
+Wierzcholki: 4,
+Czas trwania algorytmu: 0.0046 ms
+
+Podpunkt 6: Petle
+
+Krawedzie: 5,
+Czas trwania algorytmu: 0.0024 ms
+
+Podpunkt 7: Krawedzie dwukierunkowe
+
+3 : 4
+Czas trwania algorytmu: 0.0041 ms
+
