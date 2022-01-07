@@ -4,25 +4,14 @@
 #include <chrono>
 #include <bits/stdc++.h>
 
-long double timer(const vector<vector<int>> arr,const function<vector<int>(vector<vector<int>>)> algorithm,int count){
-    long double sum = 0; //zmienna dla sumy czasow wykonania algorytmu
-
-    for( int i = 0; i <= count; i++ ){
-        auto startA = chrono::steady_clock::now(); //start zegara
-        algorithm(arr); // wybrany wczesniej algorytm
-        auto stopA = chrono::steady_clock::now(); //stop zegara
-        auto durationA = stopA - startA; //roznica czasow
-        sum += chrono::duration<long double, nano> (durationA).count(); //zmiennoprzecinkowe zapisanie do zmiennej
-    }
-    return sum/count; //zwracanie sredniej czasow
-}
-
-vector<vector<int>> user_matrix(int rows, int columns){
+vector<vector<int>> user_matrix(int width, int height){
     vector<vector<int>> result;
     int a;
 
-    for(int i = 0; i < columns; i++){
-        for(int j = 0; j < rows; j++){
+    for(int i = 0; i < height; i++){
+        cout << "Wiersz "<<i<<endl;
+        for(int j = 0; j < width; j++){
+            cout << "Podaj "<<j<<" liczbe:";
             cin >> a;
             result[i][j] = a;
         }

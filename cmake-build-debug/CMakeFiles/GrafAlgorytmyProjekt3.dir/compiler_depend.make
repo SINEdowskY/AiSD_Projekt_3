@@ -140,7 +140,6 @@ CMakeFiles/GrafAlgorytmyProjekt3.dir/main.cpp.obj: ../main.cpp \
   C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
   C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/vector.tcc \
   ../Graph.h \
-  ../Ticktock.h \
   C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/chrono \
   C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ratio \
   C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/limits \
@@ -411,8 +410,6 @@ C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/m
 C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/x86_64-w64-mingw32/include/stdint.h:
 
 C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception:
-
-../Ticktock.h:
 
 C:/Users/kub20/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.6461.46/bin/mingw/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/clocale:
 
