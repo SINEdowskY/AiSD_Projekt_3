@@ -182,7 +182,7 @@ public:
     // Podpunkt 5)
     vector<int> getIsolatedVertices(){
         vector<int> result;
-        int index = 1;
+        int index = 0;
         bool test;
 
         for(vector<int> el: this->matrix){
