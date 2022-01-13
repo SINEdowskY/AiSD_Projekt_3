@@ -3,38 +3,15 @@
 #include "Graph.h"
 #include <chrono>
 #include <bits/stdc++.h>
-#include <fstream>
 #include <string>
 
-vector<vector<int>> user_matrix(int width, int height){
-    vector<vector<int>> result;
-    vector<int> temp;
-
-    for(int i = 0; i < width; i++){
-        for()
-    }
-
-
-    return result;
-}
-
-int main() {
-    vector<vector<int>> A = {
-            {1,1,0,0,0,1},
-            {-1,0,-1,0,0,0},
-            {0,-1,1,1,-1,0},
-            {0,0,0,-1,1,0},
-            {0,0,0,0,0,0}
-    };
-
-    vector<vector<int>> user = user_matrix(5,4);
-
-    Graph graph(A);
+void straight_info(vector<vector<int>> matrix){
+    Graph graph(matrix);
     stringstream ss;
     ofstream file;
 
 
-    for(vector<int> el: A){
+    for(vector<int> el: matrix){
         ss << "[";
         for(int cell: el){
             ss << setw(2) << cell << " ";
@@ -59,6 +36,7 @@ int main() {
         ss << endl;
     }
 
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -69,6 +47,7 @@ int main() {
     time = chrono::duration<long double, milli> (stop - start).count();
 
     ss << endl;
+    ss << "Wierzcholki: ";
     if(!ad2.empty()){
         for(int el: ad2){
             ss << el << ",";
@@ -77,6 +56,7 @@ int main() {
     else{
         ss << "Brak sasiadow kazdego wierzcholka"<<endl;
     }
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -90,6 +70,7 @@ int main() {
     for(vector<int> el: ad3){
         ss << el[0] << ": " << el[1] <<" Stopien"<<endl;
     }
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -103,6 +84,7 @@ int main() {
     for(vector<int> el: ad4){
         ss << el[0] << ": " << el[1] <<" Stopien"<<endl;
     }
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -114,8 +96,8 @@ int main() {
 
 
     ss << endl;
-    ss << "Wierzcholki: ";
     if(!ad5.empty()){
+        ss << "Wierzcholki: ";
         for(int el: ad5){
             ss << el <<',';
         }
@@ -123,7 +105,7 @@ int main() {
     else{
         ss << "Brak wierzcholkow izolowanych" << endl;
     }
-    ss << endl;
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -135,8 +117,8 @@ int main() {
 
 
     ss << endl;
-    ss << "Krawedzie: ";
     if(!ad6.empty()){
+        ss << "Krawedzie: ";
         for(int el: ad6){
             ss << el <<',';
         }
@@ -144,7 +126,7 @@ int main() {
     else{
         ss << "Brak petli" << endl;
     }
-    ss << endl;
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -164,6 +146,7 @@ int main() {
     else{
         ss << "Brak krawedzi dwukierunkowych" << endl;
     }
+    ss << endl << endl;
     ss << "Czas trwania algorytmu: "<<time<<" ms"<<endl;
     ss << endl;
 
@@ -171,6 +154,43 @@ int main() {
     file.open("output.txt");
     file << ss.str();
     file.close();
+}
+
+int main() {
+    vector<vector<int>> A = { // A: Zawiera: petle, wierzcholek izolowany i krawedzie dwukierunkowe
+            {1,1,0,0,0,1},
+            {-1,0,-1,0,0,0},
+            {0,-1,1,1,-1,0},
+            {0,0,0,-1,1,0},
+            {0,0,0,0,0,0}
+    };
+
+    vector<vector<int>> B = { //B: Zawiera: sasiada kazdego wierzcholka
+            {-1,-1,-1,-1},
+            {1,0,0,0},
+            {0,1,0,0},
+            {0,0,1,0},
+            {0,0,0,1}
+    };
+    bool check = true;
+    int input;
+    while(check){
+        cout << "Wybierz macierz :"<<endl;
+        cout << "1 :A: Zawiera: petle, wierzcholek izolowany i krawedzie dwukierunkowe"<<endl;
+        cout << "2 :B: Zawiera: sasiada kazdego wierzcholka" << endl;
+        cin >> input;
+        if(input == 1){
+            straight_info(A);
+            check = false;
+        }
+        else if(input == 2){
+            straight_info(B);
+            check = false;
+        }
+        else{
+            cout << "Zla liczba !"<<endl;
+        }
+    }
 
     return 0;
 }

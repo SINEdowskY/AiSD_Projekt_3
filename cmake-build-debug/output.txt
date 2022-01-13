@@ -1,53 +1,66 @@
-[ 1  1  0  0  0  1 ]
-[-1  0 -1  0  0  0 ]
-[ 0 -1  1  1 -1  0 ]
-[ 0  0  0 -1  1  0 ]
-[ 0  0  0  0  0  0 ]
+[-1 -1 -1 -1 ]
+[ 1  0  0  0 ]
+[ 0  1  0  0 ]
+[ 0  0  1  0 ]
+[ 0  0  0  1 ]
 
 Podpunkt 1: Wszyscy sasiedzi dla kazdego wierzcholka
 
-0: 1, 2, 
-1: 
-2: 1, 3, 
-3: 2, 
-4: 
-Czas trwania algorytmu: 0.0168 ms
+0: 
+1: 0, 
+2: 0, 
+3: 0, 
+4: 0, 
+
+
+Czas trwania algorytmu: 0.005 ms
 
 Podpunkt 2: Wszystkie wierzcholki, ktore sa sasiadami kazdego wierzcholka
 
-Brak sasiadow kazdego wierzcholka
-Czas trwania algorytmu: 0.0004 ms
+Wierzcholki: 0,
+
+Czas trwania algorytmu: 0.0005 ms
 
 Podpunkt 3: Stopnie wychodzace wszystkich wierzczolkow
 
-1: 3 Stopien
-2: 0 Stopien
-3: 2 Stopien
+1: 0 Stopien
+2: 1 Stopien
+3: 1 Stopien
 4: 1 Stopien
-5: 0 Stopien
-Czas trwania algorytmu: 0.017 ms
+5: 1 Stopien
+
+
+Czas trwania algorytmu: 0.0067 ms
 
 Podpunkt 4: Stopnie wchodzace wszystkich wierzczolkow
 
-1: 0 Stopien
-2: 2 Stopien
-3: 2 Stopien
-4: 1 Stopien
+1: 4 Stopien
+2: 0 Stopien
+3: 0 Stopien
+4: 0 Stopien
 5: 0 Stopien
-Czas trwania algorytmu: 0.0116 ms
+
+
+Czas trwania algorytmu: 0.0034 ms
 
 Podpunkt 5: Wierzcholki izolowane
 
-Wierzcholki: 4,
-Czas trwania algorytmu: 0.0046 ms
+Brak wierzcholkow izolowanych
+
+
+Czas trwania algorytmu: 0.0014 ms
 
 Podpunkt 6: Petle
 
-Krawedzie: 5,
-Czas trwania algorytmu: 0.0024 ms
+Brak petli
+
+
+Czas trwania algorytmu: 0.0004 ms
 
 Podpunkt 7: Krawedzie dwukierunkowe
 
-3 : 4
-Czas trwania algorytmu: 0.0041 ms
+Brak krawedzi dwukierunkowych
+
+
+Czas trwania algorytmu: 0.0003 ms
 

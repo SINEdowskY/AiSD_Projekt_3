@@ -94,50 +94,44 @@ public:
 
     // Podpunkt 1)
     vector<int_vector> getVerticeNeighbors(){
-        vector<int_vector> result;
-        vector<int> neighbours;
-            for(int i = 0; i < this->verticeAmount; i++){
-                for(int j = 0; j < this->edgeAmount; j++){
-                    if(this->matrix[i][j] == 1){
-                        for(int k = 0; k < this->verticeAmount; k++){
-                            if(matrix[k][j] == -1){
-                                neighbours.push_back(k);
+        vector<int_vector> result; //zmienna wyjsciowa
+        vector<int> neighbors; //zmienna tablicy sasiadow
+
+            for(int i = 0; i < this->verticeAmount; i++){//Przejscie po wszystkich
+                for(int j = 0; j < this->edgeAmount; j++){//elementach macierzy
+                    if(this->matrix[i][j] == 1){ //jezeli znajdziemy 1
+                        for(int k = 0; k < this->verticeAmount; k++){//przechodzimy po kolumnie i szukamy -1
+                            if(matrix[k][j] == -1){//jezeli znajdziemy -1
+                                neighbors.push_back(k);//dodajemy do tablicy sasiadow
                                 break;
                             }
                         }
                     }
                 }
-                result.push_back({i,neighbours});
-                neighbours.clear();
+                result.push_back({i,neighbors});//do tablicy wyniku dodajemy indeks wierzcholka i tablice sasiadow
+                neighbors.clear();//czyscimy zawartosc tablicy sasiadow
             }
-
-
-        return result;
+        return result;//zwracamy wynik
     }
 
     // Podpunkt 2)
     vector<int> getNeighborsOfAll(){
-        vector<int> result;
-        int sum;
+        vector<int> result; //zmienna wyjsciowa
+        int sum, sum_loops = this->loops.size(); //zmienna sumy polaczen
 
-        if(isolated.empty()){
-            for(int i = 0; i < verticeAmount; i++){
-                sum = 0;
+        if(isolated.empty()){//jezeli wystepuja wierzcholki izolowane funkcja zwraca pusta tablice
+            for(int i = 0; i < verticeAmount; i++){ //przejscie po wszystkich elementach
+                sum = 0; //ustawienie wartosci sumy wierzcholkow na 0
                 for(int j = 0; j < edgeAmount; j++){
-                    for(int el : this->loops){
-                        if(j != el){
-                            if(this->matrix[i][j] == 1){
-                                sum++;
-                            }
+                        if( this->matrix[i][j] == -1){ // sprawdzenie czy wartosc w komorce macierzy jest rowna 1
+                            sum++; //inkrementacja sumy
                         }
-                    }
                 }
-                if(sum == this->verticeAmount){
+                if(sum == this->verticeAmount-sum_loops-1){
                     result.push_back(i);
                 }
             }
         }
-
         return result;
     }
 
@@ -209,7 +203,7 @@ public:
         vector<int> result;
         int zero, plus;
 
-        for(int i = 0; i < matrix[0].size();i++){
+        for(int i = 0; i < edgeAmount;i++){
             zero = 0;
             plus = 0;
             for(auto & el : matrix){

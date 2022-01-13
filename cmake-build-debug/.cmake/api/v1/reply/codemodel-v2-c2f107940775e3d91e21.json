@@ -6,7 +6,6 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.20"
@@ -49,12 +48,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/kub20/CLionProjects/algorytmy_lab_zad3/cmake-build-debug",
-		"source" : "C:/Users/kub20/CLionProjects/algorytmy_lab_zad3"
+		"build" : "C:/projects/algorytmy_pro_zad3/cmake-build-debug",
+		"source" : "C:/projects/algorytmy_pro_zad3"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 2
 	}
 }

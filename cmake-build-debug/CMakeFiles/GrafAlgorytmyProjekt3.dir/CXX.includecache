@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/projects/algorytmy_pro_zad3/Graph.h
+vector
+-
+string
+-
+
+C:/projects/algorytmy_pro_zad3/main.cpp
+iostream
+-
+vector
+-
+Graph.h
+C:/projects/algorytmy_pro_zad3/Graph.h
+chrono
+-
+bits/stdc++.h
+-
+string
+-
+
